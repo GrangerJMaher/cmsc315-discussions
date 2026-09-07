@@ -203,3 +203,11 @@ Your reflection should be approximately 150–200 words and address the followin
 1. What concepts or skills did you learn while completing this assignment?
 2. What challenges did you encounter, and how did you overcome them?
 3. Explain BST behavior and compare to how ordering works to create efficiency as compared to other data structures.
+
+## Discussion Board Reflection
+
+While completing this assignment, I learned how a Binary Search Tree stored and organized values using nodes and child references. I also gained a better understanding of recursion because the insertion, searching, and traversal methods repeatedly called themselves on smaller subtrees. In particular I learned why each recursive insertion call returned the current node and why the result was assigned back to `self.root`. This allowed the first inserted value to become the root while preserving the correct child references during later insertions.
+
+The most challenging part was understanding how the recursive method updated the tree even though it only examined one node at a time. I overcame this by tracing an insertion from the root to an empty position and then following the returned node references back through each recursive call utilizing the debugging tool. Creating the visual tree display also helped me confirm that the values were placed correctly.
+
+A BST created efficiency by keeping smaller values on the left and larger values on the right. This ordering allowed a search to eliminate an entire subtree after each comparison. A linear data structure, such as a list, might require checking every element. In a balanced BST, searching and insertion took approximately `O(log n)` time, although an unbalanced tree could degrade to `O(n)` time.
