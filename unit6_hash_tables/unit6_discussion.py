@@ -31,9 +31,22 @@ def main():
     #    behaves like a hash table.
     # 4. Display the contents of the dictionary.
 
+    # Create an empty dictionary. Python dictionaries behave like hash
+    # tables by storing information as key-value pairs. The key is used
+    # to locate its associated value.
+    inventory = {}
+
+    # Add five key-value pairs to the dictionary.
+    # Each product ID is a key and its quantity is the value.
+    inventory["P100"] = 15
+    inventory["P200"] = 9
+    inventory["P300"] = 20
+    inventory["P400"] = 12
+    inventory["P500"] = 7
 
     print("\n=== INSERT OPERATIONS ===")
-    print("TODO: Create a dictionary and add multiple key-value pairs.")
+    print("Inventory after inserting five items:")
+    print(inventory)
 
     # ===============================
     # TODO (Student): LOOKUP OPERATIONS
@@ -44,8 +57,12 @@ def main():
     # 2. Clearly display the lookup results.
     # 3. Add meaningful comments to explain how the lookup works.
 
+    # A value can be looked up by providing its key.
+    # The dictionary uses the key to locate the associated value.
     print("\n=== LOOKUP OPERATIONS ===")
-    print("TODO: Demonstrate successful key lookups.")
+
+    print("P100 quantity:", inventory["P100"])
+    print("P300 quantity:", inventory["P300"])
 
     # ===============================
     # TODO (Student): UPDATE OPERATIONS
@@ -58,7 +75,16 @@ def main():
     #    a new value.
 
     print("\n=== UPDATE OPERATIONS ===")
-    print("TODO: Demonstrate updating an existing key.")
+
+    print("Inventory before update:")
+    print(inventory)
+
+    # Assigning a new value to an existing key updates the value
+    # instead of creating another copy of the key.
+    inventory["P100"] = 25
+
+    print("Inventory after updating P100:")
+    print(inventory)
 
     # ===============================
     # TODO (Student): DELETE OPERATIONS
@@ -70,7 +96,16 @@ def main():
     # 3. Use comments to explain what happens when a key is removed.
 
     print("\n=== DELETE OPERATIONS ===")
-    print("TODO: Demonstrate deleting a key-value pair.")
+
+    print("Inventory before deletion:")
+    print(inventory)
+
+    # The del statement removes the key and its associated value
+    # from the dictionary.
+    del inventory["P200"]
+
+    print("Inventory after deleting P200:")
+    print(inventory)
 
     # ===============================
     # TODO (Student): EDGE CASES
@@ -87,7 +122,22 @@ def main():
     # Explain what happens in each case.
 
     print("\n=== EDGE CASES ===")
-    print("TODO: Demonstrate and explain edge cases.")
+
+    # Edge Case 1: Looking up a key that does not exist.
+    # The get() method safely returns None instead of causing
+    # a KeyError when the key cannot be found.
+    print("Looking up missing key P600:")
+    print("P600 quantity:", inventory.get("P600"))
+
+    # Edge Case 2: Safely attempting to delete a missing key.
+    # Checking whether the key exists first prevents a KeyError.
+    print("Attempting to delete missing key P700:")
+
+    if "P700" in inventory:
+        del inventory["P700"]
+        print("P700 was deleted.")
+    else:
+        print("P700 was not found, so nothing was deleted.")
 
 
 
